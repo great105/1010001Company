@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Цифровой профиль компании — демо</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">1010001 Company</div>
+    <div class="header-actions">
+      <button class="ghost">Подключить источник</button>
+      <button class="primary">Создать карточку</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section>
+        <h2>Быстрые сценарии</h2>
+        <div class="chips" id="quickQueries"></div>
+      </section>
+      <section>
+        <h2>Лента активности</h2>
+        <ul class="activity-feed" id="activityFeed"></ul>
+      </section>
+      <section>
+        <h2>Качество данных</h2>
+        <ul class="alerts" id="qualityAlerts"></ul>
+      </section>
+      <section>
+        <h2>Автоматизация</h2>
+        <div class="automation" id="automationPanel"></div>
+      </section>
+    </aside>
+
+    <section class="content">
+      <div class="search-panel">
+        <label for="queryInput">Спросить всё</label>
+        <div class="search-row">
+          <input type="text" id="queryInput" placeholder="Например: Что по муке за 2025?" />
+          <button id="askButton" class="primary">Спросить</button>
+        </div>
+        <p class="hint">Спрашивайте обычным языком — система найдёт цифры, ответственных и документы.</p>
+      </div>
+
+      <section class="answer" id="answerCard">
+        <div class="empty-state">
+          <h2>Выберите сценарий или задайте вопрос</h2>
+          <p>Ответ появится здесь: цифры, таблицы, источники и пояснения.</p>
+        </div>
+      </section>
+
+      <section class="details-grid">
+        <div class="panel" id="objectDetails">
+          <h2>Карточки объектов</h2>
+          <p class="muted">Выберите объект слева, чтобы увидеть статус и связи.</p>
+          <div class="object-list" id="objectList"></div>
+          <div class="object-view" id="objectView"></div>
+        </div>
+        <div class="panel" id="versionPanel">
+          <h2>Версии документов</h2>
+          <div class="version-controls">
+            <div class="version-group" id="versionSelector"></div>
+            <button class="ghost" id="compareButton">Сравнить v2↔v3</button>
+          </div>
+          <div class="version-summary" id="versionSummary"></div>
+          <div class="version-diff" id="versionDiff"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="securityPanel">
+        <h2>Безопасность и доверие</h2>
+        <ul class="security-list" id="securityList"></ul>
+      </section>
+    </section>
+  </main>
+
+  <div class="modal" id="sourceModal" aria-hidden="true">
+    <div class="modal-content">
+      <header>
+        <h3 id="sourceModalTitle"></h3>
+        <button class="icon-button" id="closeModal" aria-label="Закрыть">×</button>
+      </header>
+      <div class="modal-body" id="sourceModalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
